@@ -1,0 +1,214 @@
+$IDF_PATH
+
+D:\software\Espressif\frameworks\esp-idf-v5.3.2
+
+idf.py menuconfig
+
+------------------------------------
+
+idf.py build
+
+idf.py -p COMx flash
+idf.py -p COM3 flash
+
+------------------------------------
+
+idf.py -p COMx monitor
+idf.py -p COM3 monitor
+
+
+#include "driver/gpio.h"
+#include "esp_log.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#define LED_GPIO_PIN 2 // Most ESP32 boards have an onboard LED connected to GPIO2, but check your board
+void app_main() {    // Configure the LED GPIO pin as output    gpio_set_direction(LED_GPIO_PIN, GPIO_MODE_OUTPUT);    while (1) {        // Turn the LED on        gpio_set_level(LED_GPIO_PIN, 1);        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 1 second        // Turn the LED off        gpio_set_level(LED_GPIO_PIN, 0);        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 1 second    }}
+
+------------------------------------
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C "bexelo.j@outlook.com"
+
+ssh-add C:\Users\HP\.ssh\id_rsa
+
+------------------------------------
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDEolUXYeMZEFG/qGoAY3vQ6dBCacpyDpfAdjb+EE90uxIFrfRAGFupV5tCr5vzhxLp2hptpMTjFaNfvXb1IBsap3mmeNiiBrf6me+2fDbe4BP7y+PCkJLQIETyng0TB5mABLzo/3E/hmIN9E5BO+taYEhhfTUuv88iuNoiCRo6GmM/AY0u2NOSAuo9nXtLdC3gpe+/0COET1d0RGh+DqzdpjeZpb8incH1yWy60v0duzo7movI2xsofYP3lCRM+IWBgyBi41XiiLIUqWOqBmCkGQZe7hex+ZXv6UOlEQEGQ9nyFw52TzEn2xRB9X/doOg9CQercbxlBPBIIUx5exwt4dMJ33Kg+gOAmWjSrNlhwYxt5ol+QZgyUDKWS31D/i5PzE0qto1Ybg/ZuEGcKJp6jLzecSCp51RDjw4xAbOvsF9z3gvmfChmsuRkXctdQqAer/ADx2xB1SXBCH4n6vm1W0dJS1cIww+GQxvaylp+yGGYBIYen0FXrLjmwSf8Je8GvHPcNEyZRNzpCzrlS0DaUb/2eb7/XP9+yEcoVneq7zenLYeXCqF2VJvmSQsaa5If1Y+mZtd+T1Gq02IvtuxeldkEYJPJTuZkGcRB+4HgThoAdJbS2rdCBTiyi8JJ9P6/jOQvX6nanQPeEktiO4SCZgRoS7cA3bOsmYaRGtvuLQ== bexelo.j@outlook.com
+
+------------------------------------
+
+https://github.com/BexelOJ/ESP32
+eArduino_Led_Blink
+
+
+------------------------------------
+(for SSH): to make the GitHub Repo as the Remote for push
+
+git remote add origin git@github.com:BexelOJ/Python_Programming.git
+
+git remote set-url origin git@github.com:BexelOJ/ESP32.git
+git remote set-url origin git@github.com:BexelOJ/R_Programming.git
+git remote set-url origin git@github.com:BexelOJ/Python_Programming.git
+
+git remote -v
+
+origin  git@github.com:BexelOJ/ESP32.git (fetch)
+origin  git@github.com:BexelOJ/ESP32.git (push)
+
+git push --set-upstream origin master
+
+------------------------------------
+(for HTTPS): to make the GitHub Repo as the Remote for push
+
+git remote add origin https://github.com/BexelOJ/ESP32.git
+
+git remote -v
+
+origin  https://github.com/BexelOJ/ESP32.git (fetch)
+origin  https://github.com/BexelOJ/ESP32.git (push)
+
+------------------------------------
+
+git push --set-upstream origin master
+
+------------------------------------
+
+https://github.com/BexelOJ/C_Programming.git
+
+git remote set-url origin git@github.com:BexelOJ/ESP32/eArduino_Led_Blink.git
+git remote set-url origin git@github.com:BexelOJ/Cpp_Programming.git
+git remote add origin https://github.com/BexelOJ/C_Programming.git
+
+
+https://github.com/BexelOJ/Cpp_Programming
+
+git remote set-url origin git@github.com:BexelOJ/Cpp_Programming.git
+git remote add origin https://github.com/BexelOJ/Cpp_Programming.git
+
+https://github.com/BexelOJ/C_Programming
+
+git remote set-url origin git@github.com:BexelOJ/C_Programming.git
+git remote add origin https://github.com/BexelOJ/C_Programming.git
+
+------------------------------------
+warning: adding embedded git repository: C++_02_2025
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint:   git submodule add <url> C++_02_2025
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint:   git rm --cached C++_02_2025
+hint: 
+hint: See "git help submodule" for more information.
+------------------------------------
+
+git remote set-url origin git@github.com:BexelOJ/ESP32.git
+
+git checkout master
+
+------------------------------------
+std::atomic<int> shared_var(0); // stack allocation
+
+std::atomic<int>* shared_var = new std::atomic<int>(0);  // Heap allocation
+
+------------------------------------
+declare a std::vector as a local variable in a function, it is allocated on the stack.
+
+void function() 
+{
+    std::vector<int> vec = {1, 2, 3};  // `vec` is on the stack
+}  
+
+// `vec` is destroyed when the function exits
+
+------------------------------------
+dynamically allocate a std::vector using new, it will be stored on the heap.
+ 
+void function() 
+{
+    std::vector<int>* vec = new std::vector<int>{1, 2, 3};  // `vec` is on the heap
+    delete vec;  // Don't forget to free the memory
+}
+
+------------------------------------
+declare a fixed-size array inside a function, it is allocated on the stack.
+
+void function() 
+{
+    int arr[5] = {1, 2, 3, 4, 5};  // Array is allocated on the stack
+}  // Array is destroyed when the function exits
+
+------------------------------------
+dynamically allocate an array using new (or malloc in C) the array is allocated on the heap.
+
+void function() {
+    int* arr = new int[5]{1, 2, 3, 4, 5};  // Array is allocated on the heap
+    delete[] arr;  // Don't forget to free the memory
+}
+
+------------------------------------
+std::atomic<int> counter(0);  // Atomic variable of type int
+
+means that counter is an atomic variable of type int, and it is initialized with the value 0.
+
+std::atomic<int> provides methods like 
+fetch_add(), load(), and store() to safely perform operations like 
+increments, reading, and writing without the need for locks.
+
+------------------------------------
+echo $IDF_PATH
+D:\software\Espressif\frameworks\esp-idf-v5.3.2 
+ 
+------------------------------------
+sockfd : socket file descriptor
+POSIX : Portable Operating System Interface
+SUS : Single UNIX Specification
+
+AF_INET : Address Family - IPv4
+
+
+------------------------------------
+creating, binding, listening, accepting, connecting, and communicating
+
+socket(), bind(), listen(), accept()
+
+cblacc
+
+------------------------------------
+<sys/socket.h> : socket is a directory inside sys directory
+
+sys part in <sys/socket.h> refers to the system-level programming library
+The sys directory typically contains low-level system interfaces, system calls, and related definitions. 
+socket.h is placed under this directory to indicate that it provides interfaces for socket-related functionality at the system level, 
+allowing you to create and manage network sockets on Unix-based systems.
+
+When you use #include <sys/socket.h>, it means you are including the header file that contains:
+
+Definitions of socket types (e.g., SOCK_STREAM, SOCK_DGRAM),
+Constants and macros used in socket programming (e.g., AF_INET, INADDR_ANY),
+Function declarations for creating and managing sockets (e.g., socket(), bind(), accept(), etc.).
+
+------------------------------------
+inet_ntoa() (Internet Network Address to ASCII)
+inet_pton() (Presentation to Network)
+
+------------------------------------
+exin
+
+exin-desktop
+
+git push --set-upstream origin master
+
+https://github.com/BexelOJ/R.git
+
+
+
+
+
+
+
