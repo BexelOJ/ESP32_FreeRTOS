@@ -18,9 +18,9 @@ void led1_task(void *parameter) {
 
     while (true) {
         gpio_set_level(LED1_PIN, 1);  // Turn ON LED1
-        vTaskDelay(50 / portTICK_PERIOD_MS); // Wait for 500 ms
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 500 ms
         gpio_set_level(LED1_PIN, 0);  // Turn OFF LED1
-        vTaskDelay(50 / portTICK_PERIOD_MS); // Wait for 500 ms
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 500 ms
     }
 }
 
@@ -36,9 +36,9 @@ void led2_task(void *parameter) {
 
     while (true) {
         gpio_set_level(LED2_PIN, 1);  // Turn ON LED2
-        vTaskDelay(50 / portTICK_PERIOD_MS); // Wait for 1000 ms (1 second)
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 1000 ms (1 second)
         gpio_set_level(LED2_PIN, 0);  // Turn OFF LED2
-        vTaskDelay(50 / portTICK_PERIOD_MS); // Wait for 1000 ms (1 second)
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 1000 ms (1 second)
     }
 }
 
@@ -54,9 +54,9 @@ void led3_task(void *parameter) {
 
     while (true) {
         gpio_set_level(LED3_PIN, 1);  // Turn ON LED2
-        vTaskDelay(50 / portTICK_PERIOD_MS); // Wait for 1000 ms (1 second)
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 1000 ms (1 second)
         gpio_set_level(LED3_PIN, 0);  // Turn OFF LED2
-        vTaskDelay(50 / portTICK_PERIOD_MS); // Wait for 1000 ms (1 second)
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // Wait for 1000 ms (1 second)
     }
 }
 
