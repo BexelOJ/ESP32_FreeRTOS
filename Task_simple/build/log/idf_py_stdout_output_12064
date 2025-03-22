@@ -1,0 +1,247 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Mar 22 2025 17:36:23[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09344h ( 37700) map[0m
+[0;32mI (118) esp_image: segment 1: paddr=0001936c vaddr=3ffb0000 size=0231ch (  8988) load[0m
+[0;32mI (121) esp_image: segment 2: paddr=0001b690 vaddr=40080000 size=04988h ( 18824) load[0m
+[0;32mI (131) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=13628h ( 79400) map[0m
+[0;32mI (160) esp_image: segment 4: paddr=00033650 vaddr=40084988 size=0809ch ( 32924) load[0m
+[0;32mI (179) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (179) boot: Disabling RNG early entropy source...[0m
+[0;32mI (191) cpu_start: Multicore app[0m
+[0;32mI (199) cpu_start: Pro cpu start user code[0m
+[0;32mI (200) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (200) app_init: Application information:[0m
+[0;32mI (202) app_init: Project name:     Task_simple[0m
+[0;32mI (208) app_init: App version:      0b6f42acec[0m
+[0;32mI (213) app_init: Compile time:     Mar 22 2025 17:35:45[0m
+[0;32mI (219) app_init: ELF file SHA256:  767ef1f07...[0m
+[0;32mI (224) app_init: ESP-IDF:          v5.3.1-dirty[0m
+[0;32mI (229) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (234) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (239) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (244) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (251) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (257) heap_init: At 3FFB2BE8 len 0002D418 (181 KiB): DRAM[0m
+[0;32mI (263) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (270) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (276) heap_init: At 4008CA24 len 000135DC (77 KiB): IRAM[0m
+[0;32mI (284) spi_flash: detected chip: generic[0m
+[0;32mI (287) spi_flash: flash io: dio[0m
+[0;33mW (291) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (305) main_task: Started on CPU0[0m
+[0;32mI (315) main_task: Calling app_main()[0m
+[0;32mI (315) TASK: Task1[0m
+[0;32mI (315) TASK: Task2[0m
+[0;32mI (315) main_task: Returned from app_main()[0m
+[0;32mI (565) TASK: Task1[0m
+[0;32mI (565) TASK: Task2[0m
+[0;32mI (815) TASK: Task1[0m
+[0;32mI (815) TASK: Task2[0m
+[0;32mI (1065) TASK: Task1[0m
+[0;32mI (1065) TASK: Task2[0m
+[0;32mI (1315) TASK: Task1[0m
+[0;32mI (1315) TASK: Task2[0m
+[0;32mI (1565) TASK: Task1[0m
+[0;32mI (1565) TASK: Task2[0m
+[0;32mI (1815) TASK: Task1[0m
+[0;32mI (1815) TASK: Task2[0m
+[0;32mI (2065) TASK: Task1[0m
+[0;32mI (2065) TASK: Task2[0m
+[0;32mI (2315) TASK: Task1[0m
+[0;32mI (2315) TASK: Task2[0m
+[0;32mI (2565) TASK: Task1[0m
+[0;32mI (2565) TASK: Task2[0m
+[0;32mI (2815) TASK: Task1[0m
+[0;32mI (2815) TASK: Task2[0m
+[0;32mI (3065) TASK: Task1[0m
+[0;32mI (3065) TASK: Task2[0m
+[0;32mI (3315) TASK: Task1[0m
+[0;32mI (3315) TASK: Task2[0m
+[0;32mI (3565) TASK: Task1[0m
+[0;32mI (3565) TASK: Task2[0m
+[0;32mI (3815) TASK: Task1[0m
+[0;32mI (3815) TASK: Task2[0m
+[0;32mI (4065) TASK: Task1[0m
+[0;32mI (4065) TASK: Task2[0m
+[0;32mI (4315) TASK: Task1[0m
+[0;32mI (4315) TASK: Task2[0m
+[0;32mI (4565) TASK: Task1[0m
+[0;32mI (4565) TASK: Task2[0m
+[0;32mI (4815) TASK: Task1[0m
+[0;32mI (4815) TASK: Task2[0m
+[0;32mI (5065) TASK: Task1[0m
+[0;32mI (5065) TASK: Task2[0m
+[0;32mI (5315) TASK: Task1[0m
+[0;32mI (5315) TASK: Task2[0m
+[0;32mI (5565) TASK: Task1[0m
+[0;32mI (5565) TASK: Task2[0m
+[0;32mI (5815) TASK: Task1[0m
+[0;32mI (5815) TASK: Task2[0m
+[0;32mI (6065) TASK: Task1[0m
+[0;32mI (6065) TASK: Task2[0m
+[0;32mI (6315) TASK: Task1[0m
+[0;32mI (6315) TASK: Task2[0m
+[0;32mI (6565) TASK: Task1[0m
+[0;32mI (6565) TASK: Task2[0m
+[0;32mI (6815) TASK: Task1[0m
+[0;32mI (6815) TASK: Task2[0m
+[0;32mI (7065) TASK: Task1[0m
+[0;32mI (7065) TASK: Task2[0m
+[0;32mI (7315) TASK: Task1[0m
+[0;32mI (7315) TASK: Task2[0m
+[0;32mI (7565) TASK: Task1[0m
+[0;32mI (7565) TASK: Task2[0m
+[0;32mI (7815) TASK: Task1[0m
+[0;32mI (7815) TASK: Task2[0m
+[0;32mI (8065) TASK: Task1[0m
+[0;32mI (8065) TASK: Task2[0m
+[0;32mI (8315) TASK: Task1[0m
+[0;32mI (8315) TASK: Task2[0m
+[0;32mI (8565) TASK: Task1[0m
+[0;32mI (8565) TASK: Task2[0m
+[0;32mI (8815) TASK: Task1[0m
+[0;32mI (8815) TASK: Task2[0m
+[0;32mI (9065) TASK: Task1[0m
+[0;32mI (9065) TASK: Task2[0m
+[0;32mI (9315) TASK: Task1[0m
+[0;32mI (9315) TASK: Task2[0m
+[0;32mI (9565) TASK: Task1[0m
+[0;32mI (9565) TASK: Task2[0m
+[0;32mI (9815) TASK: Task1[0m
+[0;32mI (9815) TASK: Task2[0m
+[0;32mI (10065) TASK: Task1[0m
+[0;32mI (10065) TASK: Task2[0m
+[0;32mI (10315) TASK: Task1[0m
+[0;32mI (10315) TASK: Task2[0m
+[0;32mI (10565) TASK: Task1[0m
+[0;32mI (10565) TASK: Task2[0m
+[0;32mI (10815) TASK: Task1[0m
+[0;32mI (10815) TASK: Task2[0m
+[0;32mI (11065) TASK: Task1[0m
+[0;32mI (11065) TASK: Task2[0m
+[0;32mI (11315) TASK: Task1[0m
+[0;32mI (11315) TASK: Task2[0m
+[0;32mI (11565) TASK: Task1[0m
+[0;32mI (11565) TASK: Task2[0m
+[0;32mI (11815) TASK: Task1[0m
+[0;32mI (11815) TASK: Task2[0m
+[0;32mI (12065) TASK: Task1[0m
+[0;32mI (12065) TASK: Task2[0m
+[0;32mI (12315) TASK: Task1[0m
+[0;32mI (12315) TASK: Task2[0m
+[0;32mI (12565) TASK: Task1[0m
+[0;32mI (12565) TASK: Task2[0m
+[0;32mI (12815) TASK: Task1[0m
+[0;32mI (12815) TASK: Task2[0m
+[0;32mI (13065) TASK: Task1[0m
+[0;32mI (13065) TASK: Task2[0m
+[0;32mI (13315) TASK: Task1[0m
+[0;32mI (13315) TASK: Task2[0m
+[0;32mI (13565) TASK: Task1[0m
+[0;32mI (13565) TASK: Task2[0m
+[0;32mI (13815) TASK: Task1[0m
+[0;32mI (13815) TASK: Task2[0m
+[0;32mI (14065) TASK: Task1[0m
+[0;32mI (14065) TASK: Task2[0m
+[0;32mI (14315) TASK: Task1[0m
+[0;32mI (14315) TASK: Task2[0m
+[0;32mI (14565) TASK: Task1[0m
+[0;32mI (14565) TASK: Task2[0m
+[0;32mI (14815) TASK: Task1[0m
+[0;32mI (14815) TASK: Task2[0m
+[0;32mI (15065) TASK: Task1[0m
+[0;32mI (15065) TASK: Task2[0m
+[0;32mI (15315) TASK: Task1[0m
+[0;32mI (15315) TASK: Task2[0m
+[0;32mI (15565) TASK: Task1[0m
+[0;32mI (15565) TASK: Task2[0m
+[0;32mI (15815) TASK: Task1[0m
+[0;32mI (15815) TASK: Task2[0m
+[0;32mI (16065) TASK: Task1[0m
+[0;32mI (16065) TASK: Task2[0m
+[0;32mI (16315) TASK: Task1[0m
+[0;32mI (16315) TASK: Task2[0m
+[0;32mI (16565) TASK: Task1[0m
+[0;32mI (16565) TASK: Task2[0m
+[0;32mI (16815) TASK: Task1[0m
+[0;32mI (16815) TASK: Task2[0m
+[0;32mI (17065) TASK: Task1[0m
+[0;32mI (17065) TASK: Task2[0m
+[0;32mI (17315) TASK: Task1[0m
+[0;32mI (17315) TASK: Task2[0m
+[0;32mI (17565) TASK: Task1[0m
+[0;32mI (17565) TASK: Task2[0m
+[0;32mI (17815) TASK: Task1[0m
+[0;32mI (17815) TASK: Task2[0m
+[0;32mI (18065) TASK: Task1[0m
+[0;32mI (18065) TASK: Task2[0m
+[0;32mI (18315) TASK: Task1[0m
+[0;32mI (18315) TASK: Task2[0m
+[0;32mI (18565) TASK: Task1[0m
+[0;32mI (18565) TASK: Task2[0m
+[0;32mI (18815) TASK: Task1[0m
+[0;32mI (18815) TASK: Task2[0m
+[0;32mI (19065) TASK: Task1[0m
+[0;32mI (19065) TASK: Task2[0m
+[0;32mI (19315) TASK: Task1[0m
+[0;32mI (19315) TASK: Task2[0m
+[0;32mI (19565) TASK: Task1[0m
+[0;32mI (19565) TASK: Task2[0m
+[0;32mI (19815) TASK: Task1[0m
+[0;32mI (19815) TASK: Task2[0m
+[0;32mI (20065) TASK: Task1[0m
+[0;32mI (20065) TASK: Task2[0m
+[0;32mI (20315) TASK: Task1[0m
+[0;32mI (20315) TASK: Task2[0m
+[0;32mI (20565) TASK: Task1[0m
+[0;32mI (20565) TASK: Task2[0m
+[0;32mI (20815) TASK: Task1[0m
+[0;32mI (20815) TASK: Task2[0m
+[0;32mI (21065) TASK: Task1[0m
+[0;32mI (21065) TASK: Task2[0m
+[0;32mI (21315) TASK: Task1[0m
+[0;32mI (21315) TASK: Task2[0m
+[0;32mI (21565) TASK: Task1[0m
+[0;32mI (21565) TASK: Task2[0m
+[0;32mI (21815) TASK: Task1[0m
+[0;32mI (21815) TASK: Task2[0m
+[0;32mI (22065) TASK: Task1[0m
+[0;32mI (22065) TASK: Task2[0m
+[0;32mI (22315) TASK: Task1[0m
+[0;32mI (22315) TASK: Task2[0m
+[0;32mI (22565) TASK: Task1[0m
+[0;32mI (22565) TASK: Task2[0m
+[0;32mI (22815) TASK: Task1[0m
+[0;32mI (22815) TASK: Task2[0m
+[0;32mI (23065) TASK: Task1[0m
+[0;32mI (23065) TASK: Task2[0m
+[0;32mI (23315) TASK: Task1[0m
+[0;32mI (23315) TASK: Task2[0m
+[0;32mI (23565) TASK: Task1[0m
+[0;32mI (23565) TASK: Task2[0m
+[0;32mI (23815) TASK: Task1[0m
+[0;32mI (23815) TASK: Task2[0m
