@@ -1,6 +1,225 @@
 #include <stdio.h>
 
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+#include "freertos/semphr.h"
+
+#include "driver/gpio.h"
+
+//---------------------------------------------------
+
+#define BUTTON_GPIO    GPIO_NUM_4
+#define LED_GPIO       GPIO_NUM_2
+
+//---------------------------------------------------
+
+static TaskHandle_t gpioTaskHandle = NULL;
+static QueueHandle_t gpioQueue = NULL;
+static SemaphoreHandle_t gpioSemaphore = NULL;
+
+//---------------------------------------------------
+
+static void IRAM_ATTR gpioISRHandler(void *arg)
+{
+    BaseType_t higherPriorityTaskWoken = pdFALSE;
+
+    int gpioNumber = (int)arg;
+
+    //---------------------------------------------------
+    // Rule 1:
+    // Keep ISR execution short.
+    //---------------------------------------------------
+
+    //---------------------------------------------------
+    // Rule 2:
+    // Use ISR-safe FreeRTOS APIs.
+    //---------------------------------------------------
+
+    xQueueSendFromISR(
+        gpioQueue,
+        &gpioNumber,
+        &higherPriorityTaskWoken
+    );
+
+    //---------------------------------------------------
+    // Rule 3:
+    // Semaphores have FromISR() versions.
+    //---------------------------------------------------
+
+    xSemaphoreGiveFromISR(
+        gpioSemaphore,
+        &higherPriorityTaskWoken
+    );
+
+    //---------------------------------------------------
+    // Rule 4:
+    // Task notification can also be used.
+    //---------------------------------------------------
+
+    vTaskNotifyGiveFromISR(
+        gpioTaskHandle,
+        &higherPriorityTaskWoken
+    );
+
+    //---------------------------------------------------
+    // Rule 5:
+    // Request a context switch if required.
+    //---------------------------------------------------
+
+    if (higherPriorityTaskWoken == pdTRUE)
+    {
+        portYIELD_FROM_ISR();
+    }
+}
+
+//---------------------------------------------------
+
+static void gpioTask(void *pvParameters)
+{
+    int gpioNumber;
+
+    while (1)
+    {
+        //---------------------------------------------------
+        // Wait for notification from ISR
+        //---------------------------------------------------
+
+        ulTaskNotifyTake(
+            pdTRUE,
+            portMAX_DELAY
+        );
+
+        //---------------------------------------------------
+        // Actual processing belongs in task context.
+        //---------------------------------------------------
+
+        if (xQueueReceive(
+                gpioQueue,
+                &gpioNumber,
+                0) == pdPASS)
+        {
+            printf(
+                "GPIO %d interrupt received\n",
+                gpioNumber
+            );
+        }
+
+        //---------------------------------------------------
+
+        gpio_set_level(LED_GPIO, 1);
+
+        vTaskDelay(pdMS_TO_TICKS(200));
+
+        gpio_set_level(LED_GPIO, 0);
+    }
+}
+
+//---------------------------------------------------
+
 void app_main(void)
 {
+    //---------------------------------------------------
+    // Create queue
+    //---------------------------------------------------
 
+    gpioQueue = xQueueCreate(
+        10,
+        sizeof(int)
+    );
+
+    if (gpioQueue == NULL)
+    {
+        printf("Failed to create queue\n");
+        return;
+    }
+
+    //---------------------------------------------------
+    // Create binary semaphore
+    //---------------------------------------------------
+
+    gpioSemaphore = xSemaphoreCreateBinary();
+
+    if (gpioSemaphore == NULL)
+    {
+        printf("Failed to create semaphore\n");
+        return;
+    }
+
+    //---------------------------------------------------
+    // Configure LED
+    //---------------------------------------------------
+
+    gpio_config_t ledConfig =
+    {
+        .pin_bit_mask = (1ULL << LED_GPIO),
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE
+    };
+
+    gpio_config(&ledConfig);
+
+    //---------------------------------------------------
+    // Configure button
+    //---------------------------------------------------
+
+    gpio_config_t buttonConfig =
+    {
+        .pin_bit_mask = (1ULL << BUTTON_GPIO),
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_NEGEDGE
+    };
+
+    gpio_config(&buttonConfig);
+
+    //---------------------------------------------------
+    // Create task
+    //---------------------------------------------------
+
+    xTaskCreate(
+        gpioTask,
+        "GpioTask",
+        4096,
+        NULL,
+        2,
+        &gpioTaskHandle
+    );
+
+    //---------------------------------------------------
+    // Install GPIO ISR service
+    //---------------------------------------------------
+
+    gpio_install_isr_service(0);
+
+    //---------------------------------------------------
+    // Register ISR
+    //---------------------------------------------------
+
+    gpio_isr_handler_add(
+        BUTTON_GPIO,
+        gpioISRHandler,
+        (void *)BUTTON_GPIO
+    );
+
+    //---------------------------------------------------
+
+    printf("ISR rules demonstration started\n");
+    printf("Button GPIO : %d\n", BUTTON_GPIO);
+    printf("LED GPIO    : %d\n", LED_GPIO);
+
+    //---------------------------------------------------
+
+    while (1)
+    {
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
 }
+
+//---------------------------------------------------
+
+
+
