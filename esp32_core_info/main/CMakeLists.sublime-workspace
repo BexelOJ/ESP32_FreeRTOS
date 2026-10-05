@@ -7,6 +7,25 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/D/WorkSpace/Qt/2026_Qt/2026_07_Jul_Qt/yantraSthiti/databasemanager.h",
+			"settings":
+			{
+				"buffer_size": 918,
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"revert",
+					null,
+					"AgAAAAAAAAAAAAAAAAAAAAAAAACWAwAAI2lmbmRlZiBEQVRBQkFTRU1BTkFHRVJfSAojZGVmaW5lIERBVEFCQVNFTUFOQUdFUl9ICgojaW5jbHVkZSA8UU9iamVjdD4KI2luY2x1ZGUgPFFTdHJpbmc+CgpjbGFzcyBEYXRhYmFzZU1hbmFnZXIgOiBwdWJsaWMgUU9iamVjdAp7CiAgICBRX09CSkVDVAoKICAgIFFfUFJPUEVSVFkoUVN0cmluZyBzZXJ2ZXJOYW1lIFJFQUQgc2VydmVyTmFtZSBOT1RJRlkgZGF0YUNoYW5nZWQpCiAgICBRX1BST1BFUlRZKFFTdHJpbmcgaXAgUkVBRCBpcCBOT1RJRlkgZGF0YUNoYW5nZWQpCiAgICBRX1BST1BFUlRZKGRvdWJsZSBjcHUgUkVBRCBjcHUgTk9USUZZIGRhdGFDaGFuZ2VkKQogICAgUV9QUk9QRVJUWShkb3VibGUgcmFtIFJFQUQgcmFtIE5PVElGWSBkYXRhQ2hhbmdlZCkKICAgIFFfUFJPUEVSVFkoZG91YmxlIGRpc2sgUkVBRCBkaXNrIE5PVElGWSBkYXRhQ2hhbmdlZCkKCnB1YmxpYzoKCiAgICBleHBsaWNpdCBEYXRhYmFzZU1hbmFnZXIoUU9iamVjdCAqcGFyZW50ID0gbnVsbHB0cik7CgogICAgUVN0cmluZyBzZXJ2ZXJOYW1lKCkgY29uc3Q7CiAgICBRU3RyaW5nIGlwKCkgY29uc3Q7CgogICAgZG91YmxlIGNwdSgpIGNvbnN0OwogICAgZG91YmxlIHJhbSgpIGNvbnN0OwogICAgZG91YmxlIGRpc2soKSBjb25zdDsKCiAgICBRX0lOVk9LQUJMRSBib29sIGNvbm5lY3RUb0RhdGFiYXNlKCk7CiAgICBRX0lOVk9LQUJMRSBib29sIHJlYWRMYXRlc3RNZXRyaWMoKTsKCnNpZ25hbHM6CgogICAgdm9pZCBkYXRhQ2hhbmdlZCgpOwoKcHJpdmF0ZToKCiAgICBRU3RyaW5nIG1fc2VydmVyTmFtZTsKICAgIFFTdHJpbmcgbV9pcDsKCiAgICBkb3VibGUgbV9jcHUgPSAwLjA7CiAgICBkb3VibGUgbV9yYW0gPSAwLjA7CiAgICBkb3VibGUgbV9kaXNrID0gMC4wOwp9OwoKI2VuZGlmIC8vIERBVEFCQVNFTUFOQUdFUl9ICgoKAAAAAAAAAACWAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvwEAAAAAAAC/AQAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -94,6 +113,38 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/D/WorkSpace/Qt/2026_Qt/2026_07_Jul_Qt/yantraSthiti/databasemanager.h",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 918,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								447,
+								447
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],

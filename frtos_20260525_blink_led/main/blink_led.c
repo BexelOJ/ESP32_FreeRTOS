@@ -7,19 +7,23 @@
 
 void blink_task(void *pvParameter)
 {
-    gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
+    int gpio = *(int*)pvParameter;
+
+    gpio_set_direction(gpio, GPIO_MODE_OUTPUT);
 
     while(1) {
-        gpio_set_level(BLINK_GPIO, 1);
+        gpio_set_level(gpio, 1);
         vTaskDelay(pdMS_TO_TICKS(1000));
 
-        gpio_set_level(BLINK_GPIO, 0);
+        gpio_set_level(gpio, 0);
         vTaskDelay(pdMS_TO_TICKS(2000));
     }
 }
 
 void app_main(void)
 {
-    xTaskCreate(&blink_task, "blink", 2048, NULL, 5, NULL);
+    int gpio = BLINK_GPIO;
+
+    xTaskCreate(&blink_task, "blink", 2048, &gpio, 5, NULL);
 }
 
