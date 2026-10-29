@@ -4,10 +4,14 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
+#include "trcRecorder.h"
+
 //---------------------------------------------------
+
 static SemaphoreHandle_t binarySemaphore = NULL;
 
 //---------------------------------------------------
+
 static void senderTask(void *pvParameters)
 {
     while (1)
@@ -21,6 +25,7 @@ static void senderTask(void *pvParameters)
 }
 
 //---------------------------------------------------
+
 static void receiverTask(void *pvParameters)
 {
     while (1)
@@ -35,8 +40,16 @@ static void receiverTask(void *pvParameters)
 }
 
 //---------------------------------------------------
+
 void app_main(void)
 {
+    /* Start Percepio TraceRecorder */
+    xTraceEnable(TRC_START);
+
+    printf("Percepio TraceRecorder started\n");
+
+    //---------------------------------------------------
+
     binarySemaphore = xSemaphoreCreateBinary();
 
     if (binarySemaphore == NULL)
@@ -46,6 +59,8 @@ void app_main(void)
     }
 
     printf("Binary semaphore created\n");
+
+    //---------------------------------------------------
 
     xTaskCreatePinnedToCore(
         senderTask,
@@ -57,6 +72,8 @@ void app_main(void)
         0
     );
 
+    //---------------------------------------------------
+
     xTaskCreatePinnedToCore(
         receiverTask,
         "ReceiverTask",
@@ -67,4 +84,5 @@ void app_main(void)
         1
     );
 }
+
 
