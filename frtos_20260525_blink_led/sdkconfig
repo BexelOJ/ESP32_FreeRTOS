@@ -384,6 +384,14 @@ CONFIG_PARTITION_TABLE_OFFSET=0x8000
 CONFIG_PARTITION_TABLE_MD5=y
 # end of Partition Table
 
+CONFIG_PERCEPIO_TRC_CFG_RECORDER_RTOS_ESPIDF_FREERTOS=y
+
+#
+# Percepio TraceRecorder
+#
+# CONFIG_PERCEPIO_TRACERECORDER_ENABLED is not set
+# end of Percepio TraceRecorder
+
 #
 # Compiler options
 #
